@@ -21,8 +21,20 @@ class PlantInfoPageState extends State<PlantInfoPage> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    // Create a display for the name and id.
+
+    // Title
+    // ID
+    // Image
+    return Scaffold(
+        appBar: AppBar(title: Text("PlantInfoPage")),
+        body: Center(
+            child: (Column(
+          children: [
+            Text("${plantInfo["name"]}"),
+            Text("${plantInfo["id"]}"),
+          ],
+        ))));
   }
 
   // Create the initState method here
