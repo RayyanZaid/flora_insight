@@ -1,5 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:watering_flutter_app/healthAnalysisPage.dart';
+import 'package:watering_flutter_app/imageButton.dart';
+import 'constants.dart';
 
 class CameraTab extends StatefulWidget {
   @override
@@ -12,10 +17,6 @@ class CameraTabState extends State<CameraTab> {
 
   // State Variable (it can change)
   XFile? _imageFile;
-
-  int returnSum(int a, int b) {
-    return a + b;
-  }
 
   Future<void> takePicture() async {
     var pickedImage = await _picker.pickImage(source: ImageSource.camera);
@@ -30,19 +31,49 @@ class CameraTabState extends State<CameraTab> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Camera")),
+        backgroundColor: primaryColor.withOpacity(0.05),
+        appBar: AppBar(title: const Text("Camera")),
         body: _imageFile == null
             ? Column(
+                // ignore: sort_child_properties_last
                 children: [
-                  SizedBox(height: 50),
-                  Text("Take a Picture to Analyze"),
-                  SizedBox(height: 30),
-                  IconButton(
-                    icon: Icon(Icons.camera_alt),
-                    onPressed: takePicture,
-                  )
+                  const SizedBox(height: 50),
+                  Text(
+                    "Take a Picture to Analyze",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: textColor,
+                        fontStyle: FontStyle.italic),
+                  ),
+                  const SizedBox(height: 30),
+                  ImageButton(
+                      icon: Icons.camera_alt,
+                      onPressed: takePicture,
+                      label: 'Take Picture')
                 ],
+                crossAxisAlignment: CrossAxisAlignment.center,
               )
-            : Text("Image Selected"));
+            : Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Center(
+                  child: Column(
+                    children: [
+                      InkWell(child: Image.file(File(_imageFile!.path))),
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HealthAnalysisPage(
+                                        imagePath: _imageFile!.path,
+                                      )),
+                            );
+                          },
+                          child: Text('Health Analysis'))
+                    ],
+                  ),
+                )));
   }
 }

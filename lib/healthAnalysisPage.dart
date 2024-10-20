@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class HealthAnalysisPage extends StatefulWidget {
+  final String? imagePath;
+
+  const HealthAnalysisPage({Key? key, required this.imagePath});
+
   @override
   HealthAnalysisPageState createState() => HealthAnalysisPageState();
 }
