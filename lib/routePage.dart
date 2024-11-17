@@ -21,7 +21,12 @@ class RoutePageState extends State<RoutePage> {
   void initState() {
     super.initState();
     //defintion
-    WidgetOptions = [HomePage(), MyPlantPage(), PlantSearchPage()];
+    WidgetOptions = [
+      HomePage(),
+      MyPlantPage(),
+      HealthAnalysisPage(),
+      PlantSearchPage()
+    ];
   }
 
   void onItemTapped(int index) {

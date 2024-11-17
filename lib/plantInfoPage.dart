@@ -1,4 +1,4 @@
-//import './constants.dart';
+// import './constants.dart';
 
 import 'package:flutter/material.dart';
 
@@ -33,8 +33,6 @@ class PlantInfoPageState extends State<PlantInfoPage> {
           children: [
             Text("${plantInfo["name"]}"),
             Text("${plantInfo["id"]}"),
-            Text("${plantInfo["image"]}"),
-            Text("${plantInfo["guidance"]}"),
           ],
         ))));
   }
