@@ -1,11 +1,11 @@
-// import './constants.dart';
+//import './constants.dart';
 
 import 'package:flutter/material.dart';
 
 class PlantInfoPage extends StatefulWidget {
   final Map plantInfo;
 
-  const PlantInfoPage({Key? key, required this.plantInfo}) : super(key: key);
+  const PlantInfoPage({super.key, required this.plantInfo});
 
   @override
   PlantInfoPageState createState() => PlantInfoPageState();
@@ -27,12 +27,14 @@ class PlantInfoPageState extends State<PlantInfoPage> {
     // ID
     // Image
     return Scaffold(
-        appBar: AppBar(title: Text("PlantInfoPage")),
+        appBar: AppBar(title: const Text("PlantInfoPage")),
         body: Center(
             child: (Column(
           children: [
             Text("${plantInfo["name"]}"),
             Text("${plantInfo["id"]}"),
+            Text("${plantInfo["image"]}"),
+            Text("${plantInfo["guidance"]}"),
           ],
         ))));
   }

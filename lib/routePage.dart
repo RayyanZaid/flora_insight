@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:watering_flutter_app/resultPage.dart';
 import './HomePage.dart';
 import './healthAnalysisPage.dart';
 import './myPlantsPage.dart';
@@ -6,7 +7,7 @@ import './plantSearchPage.dart';
 import 'constants.dart';
 
 class RoutePage extends StatefulWidget {
-  const RoutePage({Key? key}) : super(key: key);
+  const RoutePage({super.key});
 
   @override
   RoutePageState createState() => RoutePageState();
@@ -14,7 +15,7 @@ class RoutePage extends StatefulWidget {
 
 class RoutePageState extends State<RoutePage> {
   int selectedIndex = 0;
-//dec;aration
+//declaration
   static List<Widget>? WidgetOptions;
 
   @override
@@ -22,9 +23,8 @@ class RoutePageState extends State<RoutePage> {
     super.initState();
     //defintion
     WidgetOptions = [
-      HomePage(),
-      MyPlantPage(),
-      HealthAnalysisPage(),
+      ResultPage(imagePath: "../assets/dyingPlant.jpg"),
+      const MyPlantPage(),
       PlantSearchPage()
     ];
   }

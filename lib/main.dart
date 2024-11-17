@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:watering_flutter_app/routePage.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'routePage.dart';
 
-void main() {
-  runApp(MyApp());
+Future<void> main() async {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await dotenv.load(fileName: ".env");
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.green),
-      home: RoutePage(),
+      home: const RoutePage(),
     );
   }
 }

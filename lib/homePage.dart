@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,11 +13,11 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.only(left: 5.0),
           child: Image.asset("assets/logo.png"),
         ),
-        title: Text("Home"),
+        title: const Text("Home"),
         backgroundColor: primaryColor,
       ),
       body: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           // We want the column to be scrollable
           child: SingleChildScrollView(
               child: Column(
