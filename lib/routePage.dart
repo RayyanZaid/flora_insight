@@ -23,7 +23,7 @@ class RoutePageState extends State<RoutePage> {
     super.initState();
     //defintion
     WidgetOptions = [
-      ResultPage(imagePath: "../assets/dyingPlant.jpg"),
+      ResultPage(imagePath: "../assets/plant.png"),
       const MyPlantPage(),
       PlantSearchPage()
     ];
